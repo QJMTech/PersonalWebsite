@@ -1,0 +1,47 @@
+.page_content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.profile_column {
+    width: 100%;
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.profile {
+    min-height: 100vh;
+    line-height: .3;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    min-width: 280px;
+    position: relative;
+}
+
+.profile_content {
+    width: 580px;
+    max-width: calc(100vw - 10px);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+}
+
+.main_text {
+    font-size: 3rem;
+}
+
+.page_background {
+    background-color: rgb(159, 248, 244);
+    background: radial-gradient(circle at bottom center, rgb(159,248,244),rgb(237, 184, 245));
+    font-family: "Roboto", Tahoma, Helvetica, Verdana, sans-serif;
+    font-display: swap;
+    line-height: 1;
+    font-size: 2rem;
+    color: #333;
+}
