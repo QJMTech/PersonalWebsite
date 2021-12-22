@@ -15,14 +15,13 @@ const Icons = () => {
             </Tooltip>
             <Tooltip title="LinkedIn" arrow>
                 <a
-                    title="linkedIn"
                     href="https://www.linkedin.com/in/quinn-melssen-a1351621b/"
                 >
                     <FaLinkedin />
                 </a>
             </Tooltip>
             <Tooltip title="Email Me!" arrow>
-                <a title="Email Me!" href="mailto:qjm7@nau.edu">
+                <a href="mailto:qjm7@nau.edu">
                     <FaEnvelope />
                 </a>
             </Tooltip>

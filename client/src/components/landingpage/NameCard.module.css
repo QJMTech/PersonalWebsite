@@ -30,6 +30,7 @@
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
+    margin-top: 60px;
 }
 
 .main_text {
@@ -44,4 +45,35 @@
     line-height: 1;
     font-size: 2rem;
     color: #333;
+}
+
+.image_drawn {
+    background-color: white;
+    background-image: url("./profile_drawing.png");
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow: inset 0 0 10px 0 rgb(0 0 0 / 20%), 0 0 2px 0 rgb(0 0 0 / 10%);
+    margin: 0 auto;
+    margin-top: -60px;
+    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+}
+
+.image_real {
+    background-color: white;
+    background-image: url("./real_profile.png");
+    background-size: cover;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    box-shadow: inset 0 0 10px 0 rgb(0 0 0 / 20%), 0 0 2px 0 rgb(0 0 0 / 10%);
+    margin: 0 auto;
+    margin-top: -60px;
+    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+
 }
