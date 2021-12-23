@@ -1,16 +1,19 @@
 import React from "react";
-import axios from "axios";
-import CustomParticles from "./components/landingpage/CustomParticles"
-import NameCard from "./components/landingpage/NameCard"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LandingPage from "./components/landingpage/LandingPage";
+import Portfolio from "./components/portfolio/Portfolio";
+
+const RoutingConfig = () => (
+    <Router>
+        <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/portfolio" element={<Portfolio />}/>
+        </Routes>
+    </Router>
+);
 
 export default class App extends React.Component {
-
     render() {
-        return (
-            <div>
-                <CustomParticles />
-                <NameCard />
-            </div>
-        );
+        return <RoutingConfig />;
     }
 }
