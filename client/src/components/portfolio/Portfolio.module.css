@@ -2,9 +2,7 @@
     background-color: rgb(159, 248, 244);
     background: radial-gradient(at center, rgb(5,74,145),rgb(237, 184, 245));
     font-family: "Roboto", Tahoma, Helvetica, Verdana, sans-serif;
-    font-display: swap;
-    line-height: 1;
-    height: 100vh;
     text-align: center;
     overflow: auto;
+    margin: 0;
 }

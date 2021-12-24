@@ -2,7 +2,7 @@ import {React} from "react";
 import Particles from "react-tsparticles";
 
 
-const CustomParticles = () => {
+const CustomParticles = (props) => {
     const particlesInit = (main) => {
         console.log(main);
     };
@@ -56,7 +56,7 @@ const CustomParticles = () => {
                         },
                         links: {
                             color: "#ffffff",
-                            distance: 100,
+                            distance: 400,
                             enable: true,
                             opacity: 0.8,
                             width: 1,
@@ -77,17 +77,20 @@ const CustomParticles = () => {
                                 enable: true,
                                 value_area: 500,
                             },
-                            value: 20,
+                            value: 4,
                         },
                         opacity: {
                             value: 1,
                         },
                         shape: {
-                            type: "circle",
+                            type: props.shape,
+                            "polygon": {
+                                "nb_sides": 6}
                         },
+                        
                         size: {
                             random: true,
-                            value: 4,
+                            value: 10,
                         },
                     },
                     detectRetina: true,

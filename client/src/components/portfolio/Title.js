@@ -5,7 +5,7 @@ import Zoom from "@mui/material/Zoom";
 const Title = () => {
     return(
         <Zoom in = {true}>
-            <div className = {styles.title_text}>Personal Projects</div>
+            <div className={styles.title_text}>Personal Projects</div>
         </Zoom>
     )
 }

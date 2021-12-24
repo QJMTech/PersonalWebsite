@@ -1,32 +1,22 @@
 import React from "react";
 import styles from "./ProjectCard.module.css";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+
+// COMPONENTS
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 const ProjectCard = () => {
     return (
-        <Card styles = {styles.card} sx={{ maxWidth: 345, margin:2 }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image="/static/images/cards/contemplative-reptile.jpg"
-                    alt="green iguana"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Lizard
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
+        <Card style={{ width: "18rem", marginBottom: "1rem" }}>
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
         </Card>
     );
 };
