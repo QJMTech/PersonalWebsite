@@ -45,6 +45,7 @@ try {
         console.log("HTTPS Server running on port 443");
     });
 } catch {
+    // custom error
     console.log("Launching development server");
     // add middlewares
     app.use(express.static(path.join(__dirname, "..", "build")));
