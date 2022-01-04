@@ -8,11 +8,26 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Projects = () => {
+    // JS
+    const sociallInfo = [
+        "SociAll",
+        "SociAll is a social media keychain application designed to ",
+        "../portfolio/sociallgif.gif"
+    ];
+
+    // JSX
     return (
-        <Container fluid style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 100 }}>
+        <Container
+            fluid
+            style={{ paddingLeft: 0, paddingRight: 0, marginBottom: 100 }}
+        >
             <Row className="justify-content-center">
                 <Col md={3}>
-                    <ProjectCard />
+                    <ProjectCard
+                        title={sociallInfo[0]}
+                        description={sociallInfo[1]}
+                        img_link={sociallInfo[2]}
+                    />
                 </Col>
                 <Col md={3}>
                     <ProjectCard />
