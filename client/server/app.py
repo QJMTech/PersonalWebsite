@@ -8,7 +8,6 @@ from dateutil.relativedelta import relativedelta
 from apscheduler.schedulers.background import BackgroundScheduler
 
 
-
 # DECLARE FLASK APP
 app = Flask(__name__)
 api = Api(app)

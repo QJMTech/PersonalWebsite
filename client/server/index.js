@@ -39,6 +39,7 @@ try {
 
     httpServer.listen(80, () => {
         console.log("HTTP Server running on port 80");
+        
     });
 
     httpsServer.listen(443, () => {
@@ -50,6 +51,8 @@ try {
     // add middlewares
     app.use(express.static(path.join(__dirname, "..", "build")));
     app.use(express.static("public"));
+
+    app.get('/momspage', router)
 
     // start express server on port 5000
     app.listen(5000, () => {

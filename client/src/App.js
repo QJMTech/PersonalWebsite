@@ -5,10 +5,10 @@ import MomsPage from "./components/teetimebot/MomsPage";
 
 const RoutingConfig = () => (
     <Router>
-        <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/momspage" element={<MomsPage />} />
-        </Routes>
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/momspage" element={<MomsPage />} />
+            </Routes>
     </Router>
 );
 
