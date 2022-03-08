@@ -37,6 +37,8 @@ try {
     const httpServer = http.createServer(app);
     const httpsServer = https.createServer(credentials, app);
 
+    app.get('/momspage', router)
+
     httpServer.listen(80, () => {
         console.log("HTTP Server running on port 80");
         
