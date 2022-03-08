@@ -36,9 +36,7 @@ try {
     // Starting both http & https servers
     const httpServer = http.createServer(app);
     const httpsServer = https.createServer(credentials, app);
-
-    app.get('/momspage', router)
-
+    
     httpServer.listen(80, () => {
         console.log("HTTP Server running on port 80");
         
@@ -53,8 +51,6 @@ try {
     // add middlewares
     app.use(express.static(path.join(__dirname, "..", "build")));
     app.use(express.static("public"));
-
-    app.get('/momspage', router)
 
     // start express server on port 5000
     app.listen(5000, () => {

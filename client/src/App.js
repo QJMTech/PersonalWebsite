@@ -1,15 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/landingpage/LandingPage";
 import MomsPage from "./components/teetimebot/MomsPage";
 
 const RoutingConfig = () => (
-    <Router>
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/momspage" element={<MomsPage />} />
-            </Routes>
-    </Router>
+    <HashRouter>
+        <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/momspage" element={<MomsPage />} />
+        </Routes>
+    </HashRouter>
 );
 
 export default class App extends React.Component {
