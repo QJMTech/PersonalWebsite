@@ -3,9 +3,11 @@ from flask_restful import Api, Resource, reqparse
 import requests
 import json
 import datetime
-import time
+import time as timemodule
 from dateutil.relativedelta import relativedelta
 from apscheduler.schedulers.background import BackgroundScheduler
+
+
 
 # DECLARE FLASK APP
 app = Flask(__name__)
@@ -50,7 +52,7 @@ def submit_teetimes():
 
 
 def get_teetime(course, time, num):
-    time.sleep(1)
+    timemodule.sleep(1)
     # CHANGING COURSE VARIABLES DEPENDING ON COURSE CHOSEN
     if course == "Victory":
         booking_class = "3450"

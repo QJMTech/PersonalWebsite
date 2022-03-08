@@ -23,7 +23,7 @@ const FormCard = (information) => {
                                         required
                                     >
                                         <option value="Victory">Victory</option>
-                                        <option value="Verrado">Verrado</option>
+                                        <option value="Founders">Founders</option>
                                     </select>
                                     <label>Pick your time</label>
                                     <select
