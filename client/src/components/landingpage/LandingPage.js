@@ -2,7 +2,7 @@ import React from "react";
 
 // COMPONENTS
 import NameCard from "./NameCard";
-import CustomParticles from "./CustomParticles";
+import CustomParticles from "../CustomParticles";
 
 const LandingPage = () => {
         return (
