@@ -1,0 +1,16 @@
+[2022-03-09 22:39:27 +0000] [13377] [INFO] Starting gunicorn 20.1.0
+[2022-03-09 22:39:27 +0000] [13377] [INFO] Listening at: http://0.0.0.0:5000 (13377)
+[2022-03-09 22:39:27 +0000] [13377] [INFO] Using worker: sync
+[2022-03-09 22:39:27 +0000] [13380] [INFO] Booting worker with pid: 13380
+Jobstore default:
+    No scheduled jobs
+This runs 1
+This runs 1
+[2022-03-09 22:40:35 +0000] [13377] [CRITICAL] WORKER TIMEOUT (pid:13380)
+[2022-03-09 22:40:35 +0000] [13380] [INFO] Worker exiting (pid: 13380)
+[2022-03-09 22:40:36 +0000] [13397] [INFO] Booting worker with pid: 13397
+Jobstore default:
+    No scheduled jobs
+[2022-03-09 22:40:51 +0000] [13377] [INFO] Handling signal: term
+[2022-03-09 22:40:51 +0000] [13397] [INFO] Worker exiting (pid: 13397)
+[2022-03-09 22:40:51 +0000] [13377] [INFO] Shutting down: Master

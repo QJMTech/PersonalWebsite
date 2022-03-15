@@ -15,7 +15,7 @@ const FormCard = (information) => {
                                     Reserve Your Teetime
                                 </h1>
                                 {/* Element to display typing strings */}
-                                <form action="/submit" method="POST">
+                                <form action="http://qjmtech.me:5000/submit" method="POST">
                                     <label>Pick your course</label>
                                     <select
                                         className={styles.dropdown}

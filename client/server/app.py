@@ -17,7 +17,7 @@ api = Api(app)
 scheduler = BackgroundScheduler()
 scheduler.start()
 
-
+scheduler.print_jobs()
 @app.route("/submit", methods=["POST"])
 def submit_teetimes():
     # KILL PRIOR JOBS
@@ -43,7 +43,7 @@ def submit_teetimes():
     scheduler.add_job(
         lambda: get_teetime(desiredcourse, desiredtime, desirednum),
         "cron",
-        hour=0,
+        hour=7,
         id="teetime",
     )
 
@@ -284,4 +284,4 @@ def reserveTeeTime(sesh, schedule_id, course_id, course_name, booking_class, cou
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(host='0.0.0.0')
