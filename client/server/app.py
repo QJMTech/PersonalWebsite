@@ -23,7 +23,7 @@ def submit_teetimes():
     # KILL PRIOR JOBS
     try:
         scheduler.remove_job('teetime')
-    
+
     except:
         pass
 
@@ -46,7 +46,7 @@ def submit_teetimes():
         hour=7,
         id="teetime",
     )
-
+    print("Scheduled your teetimes, hope they work!")
     return "Your " + desirednum + " teetime(s) at " + desiredcourse + " have been scheduled! Check back tomorrow!"
 
 
@@ -80,6 +80,8 @@ def get_teetime(course, time, num):
         # RESERVES X AMOUNT OF TEETIMES
         for x in final_tee_times:
             reserveTeeTime(sesh, schedule_id, course_id, course_name, booking_class, course, x)
+
+        print("Scheduled the teetimes, woohoo!")
 
 
 ########################
