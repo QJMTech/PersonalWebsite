@@ -18,11 +18,13 @@ scheduler = BackgroundScheduler()
 scheduler.start()
 
 scheduler.print_jobs()
+
+
 @app.route("/submit", methods=["POST"])
 def submit_teetimes():
     # KILL PRIOR JOBS
     try:
-        scheduler.remove_job('teetime')
+        scheduler.remove_job("teetime")
 
     except:
         pass
@@ -47,7 +49,13 @@ def submit_teetimes():
         id="teetime",
     )
     print("Scheduled your teetimes, hope they work!")
-    return "Your " + desirednum + " teetime(s) at " + desiredcourse + " have been scheduled! Check back tomorrow!"
+    return (
+        "Your "
+        + desirednum
+        + " teetime(s) at "
+        + desiredcourse
+        + " have been scheduled! Check back tomorrow!"
+    )
 
 
 def get_teetime(course, time, num):
@@ -79,7 +87,9 @@ def get_teetime(course, time, num):
 
         # RESERVES X AMOUNT OF TEETIMES
         for x in final_tee_times:
-            reserveTeeTime(sesh, schedule_id, course_id, course_name, booking_class, course, x)
+            reserveTeeTime(
+                sesh, schedule_id, course_id, course_name, booking_class, course, x
+            )
 
         print("Scheduled the teetimes, woohoo!")
 
@@ -252,38 +262,60 @@ def parseTeeTimes(getResult, desired_time, num):
     return finalTeeTimes
 
 
-def reserveTeeTime(sesh, schedule_id, course_id, course_name, booking_class, course, teetime):
-    reservationData = "{\"teesheet_id\":\"" + schedule_id + "\",\"teesheet_holes\":\"18\",\"time\":\"" + teetime + "\",\"course_id\":\"" + course_id + "\",\"course_name\":\"" + course_name + "\",\"schedule_name\":\"" + course + "\",\"schedule_id\":\"" + schedule_id + "\",\"available_spots\":4,\"minimum_players\":1,\"trade_min_players\":\"4\",\"trade_available_players\":4,\"foreup_trade_discount_rate\":1,\"holes\":18,\"has_special\":false,\"special_discount_percentage\":0,\"group_id\":false,\"require_credit_card\":0,\"booking_class_id\":" + booking_class + ",\"booking_fee_required\":false,\"booking_fee_price\":false,\"booking_fee_per_person\":false,\"green_fee_tax_rate\":false,\"green_fee_tax\":0,\"guest_green_fee_tax_rate\":false,\"guest_green_fee_tax\":0,\"cart_fee_tax_rate\":false,\"cart_fee_tax\":0,\"guest_cart_fee_tax_rate\":false,\"guest_cart_fee_tax\":0,\"special_id\":false,\"foreup_discount\":true,\"pay_online\":\"no\",\"green_fee\":0,\"guest_green_fee\":0,\"rate_type\":\"walking\",\"players\":4,\"carts\":false,\"cart_fee\":false,\"promo_code\":\"\",\"promo_discount\":0,\"player_list\":[{\"position\":2,\"name\":\"Guest\",\"person_id\":null},{\"position\":3,\"name\":\"Guest\",\"person_id\":null},{\"position\":4,\"name\":\"Guest\",\"person_id\":null}],\"duration\":1,\"hide_prices\":false,\"show_course_name\":false,\"min_players\":1,\"max_players\":4,\"notes\":[],\"customer_message\":\"\",\"guest_cart_fee\":false,\"total\":0,\"purchased\":false,\"pay_players\":4,\"pay_carts\":false,\"pay_total\":0,\"pay_subtotal\":0,\"paid_player_count\":0,\"discount_percent\":1,\"discount\":0,\"details\":\"\",\"pending_reservation_id\":\"TTID_0422205348r9c7p\",\"allow_mobile_checkin\":0,\"foreup_trade_discount_information\":[],\"airQuotesCart\":[{\"type\":\"item\",\"description\":\"Green Fee\",\"price\":0,\"quantity\":4,\"subtotal\":0}],\"preTaxSubtotal\":0,\"estimatedTax\":0,\"subtotal\":0,\"available_duration\":null,\"increment_amount\":null}"
+def reserveTeeTime(
+    sesh, schedule_id, course_id, course_name, booking_class, course, teetime
+):
+    reservationData = (
+        '{"teesheet_id":"'
+        + schedule_id
+        + '","teesheet_holes":"18","time":"'
+        + teetime
+        + '","course_id":"'
+        + course_id
+        + '","course_name":"'
+        + course_name
+        + '","schedule_name":"'
+        + course
+        + '","schedule_id":"'
+        + schedule_id
+        + '","available_spots":4,"minimum_players":1,"trade_min_players":"4","trade_available_players":4,"foreup_trade_discount_rate":1,"holes":18,"has_special":false,"special_discount_percentage":0,"group_id":false,"require_credit_card":0,"booking_class_id":'
+        + booking_class
+        + ',"booking_fee_required":false,"booking_fee_price":false,"booking_fee_per_person":false,"green_fee_tax_rate":false,"green_fee_tax":0,"guest_green_fee_tax_rate":false,"guest_green_fee_tax":0,"cart_fee_tax_rate":false,"cart_fee_tax":0,"guest_cart_fee_tax_rate":false,"guest_cart_fee_tax":0,"special_id":false,"foreup_discount":true,"pay_online":"no","green_fee":0,"guest_green_fee":0,"rate_type":"walking","players":4,"carts":false,"cart_fee":false,"promo_code":"","promo_discount":0,"player_list":[{"position":2,"name":"Guest","person_id":null},{"position":3,"name":"Guest","person_id":null},{"position":4,"name":"Guest","person_id":null}],"duration":1,"hide_prices":false,"show_course_name":false,"min_players":1,"max_players":4,"notes":[],"customer_message":"","guest_cart_fee":false,"total":0,"purchased":false,"pay_players":4,"pay_carts":false,"pay_total":0,"pay_subtotal":0,"paid_player_count":0,"discount_percent":1,"discount":0,"details":"","pending_reservation_id":"TTID_0422205348r9c7p","allow_mobile_checkin":0,"foreup_trade_discount_information":[],"airQuotesCart":[{"type":"item","description":"Green Fee","price":0,"quantity":4,"subtotal":0}],"preTaxSubtotal":0,"estimatedTax":0,"subtotal":0,"available_duration":null,"increment_amount":null}'
+    )
     reservationHeaders = {
-        'authority': 'foreupsoftware.com',
-        'method': 'POST',
-        'path': '/index.php/api/booking/users/reservations',
-        'scheme': 'https',
-        'accept': 'application/json, text/javascript, */*; q=0.01',
-        'accept-encoding': 'gzip, deflate, br',
-        'accept-language': 'en-US,en;q=0.9',
-        'api-key': 'no_limits',
-        'content-length': '1680',
-        'content-type': 'application/json',
-        'cookie': '_ga=GA1.2.460092786.1603738296; __stripe_mid=14dd1345-f8c4-4a38-a96d-1b5de833c86c9a18b9; PHPSESSID=8j7pf956mmj14vm7phn4argqc5; _gid=GA1.2.237289583.1619110067; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJmb3JldXBzb2Z0d2FyZS5jb20iLCJhdWQiOiJmb3JldXBzb2Z0d2FyZS5jb20iLCJpYXQiOjE2MTkxMzM4NzUsImV4cCI6MTYyMTcyNTg3NSwidWlkIjoiMTM4MzkxMjAiLCJsZXZlbCI6MCwiY2lkIjoiMjAxNjEiLCJlbXBsb3llZSI6ZmFsc2V9.V4DhVdCFRHCy7LEaxCNcGVQeyEWGtqmEWhpX32vE0jqXkHB2v91L0_szUmikOSEn787WaZQ58maFblss0Eogmw; __stripe_sid=dfbc32bc-c643-4b69-8513-97a70b2237894cc1c2',
-        'origin': 'https://foreupsoftware.com',
-        'referer': 'https://foreupsoftware.com/index.php/booking/20161/' + schedule_id,
-        'sec-ch-ua-mobile': '?0',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42',
-        'x-newrelic-id': 'VwcGVVBVDBABVllXBAYPUVwE',
-        'x-requested-with': 'XMLHttpRequest'
-        }
-    RESERVATION_URL = 'https://foreupsoftware.com/index.php/api/booking/users/reservations'
+        "authority": "foreupsoftware.com",
+        "method": "POST",
+        "path": "/index.php/api/booking/users/reservations",
+        "scheme": "https",
+        "accept": "application/json, text/javascript, */*; q=0.01",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "en-US,en;q=0.9",
+        "api-key": "no_limits",
+        "content-length": "1680",
+        "content-type": "application/json",
+        "cookie": "_ga=GA1.2.460092786.1603738296; __stripe_mid=14dd1345-f8c4-4a38-a96d-1b5de833c86c9a18b9; PHPSESSID=8j7pf956mmj14vm7phn4argqc5; _gid=GA1.2.237289583.1619110067; token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJmb3JldXBzb2Z0d2FyZS5jb20iLCJhdWQiOiJmb3JldXBzb2Z0d2FyZS5jb20iLCJpYXQiOjE2MTkxMzM4NzUsImV4cCI6MTYyMTcyNTg3NSwidWlkIjoiMTM4MzkxMjAiLCJsZXZlbCI6MCwiY2lkIjoiMjAxNjEiLCJlbXBsb3llZSI6ZmFsc2V9.V4DhVdCFRHCy7LEaxCNcGVQeyEWGtqmEWhpX32vE0jqXkHB2v91L0_szUmikOSEn787WaZQ58maFblss0Eogmw; __stripe_sid=dfbc32bc-c643-4b69-8513-97a70b2237894cc1c2",
+        "origin": "https://foreupsoftware.com",
+        "referer": "https://foreupsoftware.com/index.php/booking/20161/" + schedule_id,
+        "sec-ch-ua-mobile": "?0",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.72 Safari/537.36 Edg/90.0.818.42",
+        "x-newrelic-id": "VwcGVVBVDBABVllXBAYPUVwE",
+        "x-requested-with": "XMLHttpRequest",
+    }
+    RESERVATION_URL = (
+        "https://foreupsoftware.com/index.php/api/booking/users/reservations"
+    )
 
     # GET TEETIME LOGIC #
-    result = sesh.post(RESERVATION_URL, data = reservationData, headers = reservationHeaders)
+    result = sesh.post(
+        RESERVATION_URL, data=reservationData, headers=reservationHeaders
+    )
 
     print(result.text)
 
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(host='0.0.0.0')
+    app.run(host="0.0.0.0")
