@@ -1,0 +1,45 @@
+.portfolio_page {
+    text-align: center;
+    background-color: #2a2a2a;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    display: block;
+    min-height: 100%;
+}
+
+.grid_list {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    -moz-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    -webkit-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+.item {
+    position: relative;
+    display: block;
+    padding: 2.2em;
+    width: 50%;
+}
+
+@media all and (max-width: 1000px) {
+    .item {
+        padding: 1em;;
+    }
+    .grid_list {
+        
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+}
+
+a {
+    text-decoration: none;
+    margin: 0px !important;
+}

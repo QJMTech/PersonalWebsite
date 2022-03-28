@@ -5,7 +5,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import ProjectCarousel from "./ProjectCarousel"
+import { Link } from "react-router-dom";
+
 
 const style = {
     position: "absolute",
@@ -21,31 +22,12 @@ const style = {
 };
 
 export default function TransitionsModal() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
 
     return (
         <div>
-            <Button className = {styles.portfolio_button} onClick={handleOpen}>See Portfolio</Button>
-            <Modal
-                className = {styles.modal}
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={open}>
-                    <Box sx={style}>
-                        <ProjectCarousel></ProjectCarousel>
-                    </Box>
-                </Fade>
-            </Modal>
+            
+            <Link to = "/portfolio"><Button className = {styles.portfolio_button}>See Portfolio</Button></Link>
+            
         </div>
     );
 }

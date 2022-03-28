@@ -40,7 +40,7 @@ const CustomParticles = (props) => {
                                 size: 40,
                             },
                             push: {
-                                quantity: 4,
+                                quantity: 1,
                             },
                             repulse: {
                                 distance: 160,
