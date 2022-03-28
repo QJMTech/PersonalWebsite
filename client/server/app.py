@@ -34,7 +34,7 @@ def submit_teetimes():
 
     # CHANGE DESIRED TIME TO TIME AND DATE TWO WEEKS OUT
     desiredtime = (
-        str(datetime.date.today() + relativedelta(weeks=+2, days=+1))
+        str(datetime.date.today() + relativedelta(weeks=+2, days=+0))
         + " "
         + desiredtime
     )
@@ -43,7 +43,7 @@ def submit_teetimes():
     scheduler.add_job(
         lambda: get_teetime(desiredcourse, desiredtime, desirednum),
         "cron",
-        hour=7,
+        hour=18,
         id="teetime",
     )
     print("Scheduled your teetimes, hope they work!")
