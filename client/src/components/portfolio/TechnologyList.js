@@ -1,5 +1,4 @@
 import React from "react";
-import Title from "./Title";
 import styles from "./TechnologyList.module.css";
 
 const TechnologyList = (techname) => {
