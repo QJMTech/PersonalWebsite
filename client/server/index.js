@@ -18,7 +18,7 @@ try {
         "utf8"
     );
     const ca = fs.readFileSync(
-        "/etc/letsencrypt/live/qjmtech.me/chain.pem",
+        "/etc/letsencrypt/live/qjmtech.me/fullchain.pem",
         "utf8"
     );
 
@@ -45,7 +45,11 @@ try {
     httpsServer.listen(443, () => {
         console.log("HTTPS Server running on port 443");
     });
-} catch {
+} catch (e) {
+    //error
+    console.log("Error", e.stack);
+    console.log("Error", e.name);
+    console.log("Error", e.message);
     // custom error
     console.log("Launching development server");
     // add middlewares
