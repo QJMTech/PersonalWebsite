@@ -26,14 +26,14 @@
     display: block;
     padding: 2.2em;
     width: 50%;
+    cursor: pointer;
 }
 
 @media all and (max-width: 1000px) {
     .item {
-        padding: 1em;;
+        padding: 1em;
     }
     .grid_list {
-        
         padding-left: 2%;
         padding-right: 2%;
     }
@@ -42,4 +42,12 @@
 a {
     text-decoration: none;
     margin: 0px !important;
+}
+
+.modal {
+    color: #2a2a2a;
+}
+
+.modal_title {
+    text-align: center;
 }
